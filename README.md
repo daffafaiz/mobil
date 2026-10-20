@@ -1,3 +1,7 @@
+# Project Mobile App (tema yang saya ambil itu Applikasi untuk pilih Kendaraan) Nama Applikasi GarasiKita
+# Nama : Daffa Syafiq Faiz
+# NIM : 24091006
+
 # GarasiKita
 
 Aplikasi katalog kendaraan Android dengan Kotlin dan tampilan XML. Tema mobil dan motor dipilih karena mudah diperagakan dalam dua layar: katalog kategori dan halaman detail.
@@ -41,7 +45,8 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 ## Screenshot untuk pengumpulan
 
-Ambil dua screenshot dari HP fisik atau emulator Android: (1) layar katalog yang menampilkan pilihan Mobil/Motor, (2) layar detail salah satu kelas. Simpan hasilnya di folder `screenshots/` sebelum mengunggah repository. Pastikan `app/build/` tidak ikut di-commit; folder tersebut sudah diabaikan oleh `.gitignore`.
+![Layar katalog kendaraan](katalog.jpeg)
+![Layar detail kendaraan](detail.jpeg)
 
 ## Struktur singkat
 
