@@ -45,8 +45,10 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 
 ## Screenshot untuk pengumpulan
 
-![Layar katalog kendaraan](katalog.jpeg)
-![Layar detail kendaraan](detail.jpeg)
+<p align="center">
+  <img src="katalog.jpeg" alt="Layar katalog kendaraan" width="220">
+  <img src="detail.jpeg" alt="Layar detail kendaraan" width="220">
+</p>
 
 ## Struktur singkat
 
