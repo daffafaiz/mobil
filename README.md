@@ -1,6 +1,6 @@
 # Project Mobile App (tema yang saya ambil itu Applikasi untuk pilih Kendaraan) Nama Applikasi GarasiKita
-# Nama : Daffa Syafiq Faiz
-# NIM : 24091006
+Nama : Daffa Syafiq Faiz
+NIM : 24091006
 
 # GarasiKita
 
