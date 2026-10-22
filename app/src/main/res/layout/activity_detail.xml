@@ -8,7 +8,7 @@
         <TextView android:id="@+id/detailName" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="10dp" android:textColor="#F4F5EF" android:textSize="37sp" android:textStyle="bold" />
         <ImageView android:id="@+id/detailImage" android:layout_width="match_parent" android:layout_height="210dp"
-            android:layout_marginTop="25dp" android:background="@drawable/card_background" android:contentDescription="Ilustrasi kendaraan pilihan" android:padding="34dp" android:scaleType="fitCenter" />
+            android:layout_marginTop="25dp" android:background="@drawable/card_background" android:contentDescription="Foto kendaraan pilihan" android:scaleType="centerCrop" />
         <TextView android:id="@+id/detailDescription" android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginTop="26dp" android:lineSpacingExtra="5dp" android:textColor="#CBD0C6" android:textSize="16sp" />
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="32dp"

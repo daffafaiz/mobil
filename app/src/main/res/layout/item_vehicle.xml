@@ -3,7 +3,7 @@
     android:background="@drawable/card_background" android:gravity="center_vertical" android:minHeight="100dp"
     android:orientation="horizontal" android:padding="14dp">
     <ImageView android:id="@+id/vehicleImage" android:layout_width="88dp" android:layout_height="64dp"
-        android:contentDescription="Ilustrasi kendaraan" android:scaleType="fitCenter" />
+        android:contentDescription="Foto kendaraan" android:scaleType="centerCrop" />
     <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="14dp" android:layout_weight="1" android:orientation="vertical">
         <TextView android:id="@+id/vehicleType" android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:textColor="@color/accent" android:textSize="10sp" android:letterSpacing="0.1" android:textStyle="bold" />

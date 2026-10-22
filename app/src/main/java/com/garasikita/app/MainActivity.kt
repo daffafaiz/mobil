@@ -14,6 +14,7 @@ import android.widget.TextView
 
 private data class Vehicle(
     val name: String,
+    val model: String,
     val category: String,
     val tagline: String,
     val description: String,
@@ -23,25 +24,25 @@ private data class Vehicle(
 
 class MainActivity : Activity() {
     private val cars = listOf(
-        Vehicle("Supercar", "MOBIL • PERFORMA", "Cepat, lincah, dan penuh karakter", "Supercar memadukan kecepatan tinggi, teknologi modern, dan desain yang memikat. Dirancang untuk menghadirkan sensasi berkendara yang istimewa.", "Ciri khas: performa tinggi, bodi aerodinamis, dan teknologi berorientasi pengemudi.", R.drawable.ic_car),
-        Vehicle("Hypercar", "MOBIL • PERFORMA EKSTREM", "Batas teratas teknologi otomotif", "Hypercar berada di puncak dunia performa. Setiap detailnya dirancang untuk mengejar kecepatan, efisiensi aerodinamika, dan pengalaman yang sangat eksklusif.", "Ciri khas: produksi terbatas, tenaga luar biasa, dan rekayasa kelas atas.", R.drawable.ic_car),
-        Vehicle("Sports Car", "MOBIL • SPORT", "Dibuat untuk menikmati setiap tikungan", "Sports car membawa semangat balap ke jalan raya lewat pengendalian yang responsif dan keseimbangan yang menyenangkan.", "Ciri khas: posisi duduk rendah, pengendalian presisi, dan desain sporty.", R.drawable.ic_car),
-        Vehicle("SUV", "MOBIL • SERBAGUNA", "Nyaman untuk kota dan perjalanan jauh", "SUV menawarkan kabin lega dan posisi berkendara lebih tinggi, cocok untuk perjalanan bersama keluarga maupun menjelajahi rute baru.", "Ciri khas: ruang kabin luas, fleksibel, dan ground clearance lebih tinggi.", R.drawable.ic_car),
-        Vehicle("Sedan", "MOBIL • ELEGAN", "Kenyamanan dalam tampilan klasik", "Sedan mengutamakan kenyamanan penumpang dan pengendaraan yang halus dalam bentuk bodi tiga kompartemen yang elegan.", "Ciri khas: bagasi terpisah, kabin nyaman, dan karakter berkendara tenang.", R.drawable.ic_car),
-        Vehicle("Electric Car", "MOBIL • ELEKTRIK", "Melaju senyap dengan tenaga listrik", "Mobil listrik menggunakan motor elektrik sebagai penggerak utama, memberikan akselerasi halus dan pengalaman berkendara yang senyap.", "Ciri khas: baterai isi ulang, tanpa emisi gas buang saat berkendara.", R.drawable.ic_car),
-        Vehicle("Off-road 4×4", "MOBIL • PETUALANG", "Siap meninggalkan jalan beraspal", "Kendaraan off-road dirancang untuk menghadapi medan berat dengan traksi dan ground clearance yang mendukung petualangan.", "Ciri khas: penggerak empat roda, suspensi tangguh, ban untuk berbagai medan.", R.drawable.ic_car),
-        Vehicle("Convertible", "MOBIL • GAYA HIDUP", "Nikmati perjalanan dengan atap terbuka", "Convertible menawarkan pengalaman perjalanan yang lebih dekat dengan suasana sekitar berkat atap yang bisa dibuka.", "Ciri khas: atap lipat atau lepas dan siluet yang khas.", R.drawable.ic_car),
+        Vehicle("Supercar", "Lamborghini Huracán", "MOBIL • PERFORMA", "Cepat, lincah, dan penuh karakter", "Lamborghini Huracán adalah contoh supercar bermesin tengah yang memadukan performa tinggi dengan desain yang memikat.", "Kelas: Supercar. Ciri khas: bodi aerodinamis, mesin bertenaga, dan teknologi berorientasi pengemudi.", R.drawable.car_supercar),
+        Vehicle("Hypercar", "Bugatti Chiron", "MOBIL • PERFORMA EKSTREM", "Batas teratas teknologi otomotif", "Bugatti Chiron adalah contoh hypercar produksi yang mengejar kecepatan, efisiensi aerodinamika, dan pengalaman yang sangat eksklusif.", "Kelas: Hypercar. Ciri khas: produksi terbatas, tenaga luar biasa, dan rekayasa kelas atas.", R.drawable.car_hypercar),
+        Vehicle("Sports Car", "Porsche 911", "MOBIL • SPORT", "Dibuat untuk menikmati setiap tikungan", "Porsche 911 membawa semangat mobil sport ke jalan raya lewat pengendalian yang responsif dan keseimbangan yang menyenangkan.", "Kelas: Sports Car. Ciri khas: posisi duduk rendah, pengendalian presisi, dan desain sporty.", R.drawable.car_sports),
+        Vehicle("SUV", "Jeep Wrangler", "MOBIL • SERBAGUNA", "Nyaman untuk kota dan perjalanan jauh", "Jeep Wrangler adalah contoh SUV tangguh dengan kabin lega dan kemampuan menjelajahi berbagai rute.", "Kelas: SUV. Ciri khas: ruang kabin fleksibel, posisi berkendara tinggi, dan ground clearance tinggi.", R.drawable.car_suv),
+        Vehicle("Sedan", "BMW 3 Series", "MOBIL • ELEGAN", "Kenyamanan dalam tampilan klasik", "BMW 3 Series menjadi contoh sedan yang mengutamakan kenyamanan penumpang dan pengendaraan yang halus.", "Kelas: Sedan. Ciri khas: bagasi terpisah, kabin nyaman, dan karakter berkendara tenang.", R.drawable.car_sedan),
+        Vehicle("Electric Car", "Tesla Model S", "MOBIL • ELEKTRIK", "Melaju senyap dengan tenaga listrik", "Tesla Model S menggunakan penggerak elektrik untuk memberikan akselerasi halus dan pengalaman berkendara yang senyap.", "Kelas: Mobil listrik. Ciri khas: baterai isi ulang dan tanpa emisi gas buang saat berkendara.", R.drawable.car_electric),
+        Vehicle("Off-road 4×4", "Toyota Land Cruiser", "MOBIL • PETUALANG", "Siap meninggalkan jalan beraspal", "Toyota Land Cruiser dirancang untuk menghadapi medan berat dengan traksi dan ground clearance yang mendukung petualangan.", "Kelas: Off-road 4×4. Ciri khas: penggerak empat roda, suspensi tangguh, dan ban untuk berbagai medan.", R.drawable.car_offroad),
+        Vehicle("Convertible", "Mazda MX-5 Miata", "MOBIL • GAYA HIDUP", "Nikmati perjalanan dengan atap terbuka", "Mazda MX-5 Miata adalah roadster ringan dengan atap yang dapat dibuka untuk menikmati suasana perjalanan.", "Kelas: Convertible. Ciri khas: atap lipat dan siluet roadster yang khas.", R.drawable.car_convertible),
     )
 
     private val bikes = listOf(
-        Vehicle("Superbike", "MOTOR • PERFORMA", "DNA sirkuit untuk jalan raya", "Superbike membawa karakter motor balap dengan performa tinggi dan posisi berkendara yang agresif.", "Ciri khas: fairing penuh, mesin bertenaga, dan aerodinamika sport.", R.drawable.ic_bike),
-        Vehicle("Naked Bike", "MOTOR • SPORT", "Gaya tegas dan kendali praktis", "Naked bike menggabungkan karakter sporty dengan posisi berkendara yang lebih tegak dan nyaman untuk keseharian.", "Ciri khas: mesin terekspos, posisi santai, dan desain minimalis.", R.drawable.ic_bike),
-        Vehicle("Adventure", "MOTOR • PETUALANG", "Jelajahi lebih dari sekadar aspal", "Motor adventure dibuat untuk perjalanan jauh dan berbagai kondisi jalan, dari perkotaan hingga jalur yang menantang.", "Ciri khas: suspensi panjang, posisi tegak, dan kapasitas touring.", R.drawable.ic_bike),
-        Vehicle("Cruiser", "MOTOR • KLASIK", "Santai menikmati setiap kilometer", "Cruiser mengutamakan kenyamanan dan karakter berkendara yang rileks dengan desain klasik yang ikonik.", "Ciri khas: jok rendah, setang lebar, dan posisi kaki ke depan.", R.drawable.ic_bike),
-        Vehicle("Scooter", "MOTOR • HARIAN", "Lincah untuk rutinitas kota", "Scooter praktis digunakan sehari-hari berkat transmisi yang mudah, dek kaki rata, dan ruang penyimpanan yang berguna.", "Ciri khas: transmisi otomatis, praktis, dan nyaman untuk perkotaan.", R.drawable.ic_bike),
-        Vehicle("Cafe Racer", "MOTOR • RETRO", "Sentuhan klasik yang personal", "Cafe racer terinspirasi dari motor balap klasik dengan gaya sederhana yang mengutamakan karakter dan detail.", "Ciri khas: siluet ramping, jok khas, dan tampilan retro.", R.drawable.ic_bike),
-        Vehicle("Motocross", "MOTOR • OFF-ROAD", "Lincah menaklukkan jalur tanah", "Motocross dirancang untuk jalur off-road dan lintasan tanah, dengan konstruksi ringan dan suspensi yang siap menghadapi lompatan.", "Ciri khas: ban bertapak dalam, bobot ringan, tanpa perlengkapan jalan umum.", R.drawable.ic_bike),
-        Vehicle("Electric Bike", "MOTOR • ELEKTRIK", "Perjalanan senyap untuk masa depan", "Motor listrik memakai baterai sebagai sumber energi dan menghadirkan pengendaraan yang senyap untuk perjalanan harian.", "Ciri khas: penggerak elektrik, pengisian daya, dan perawatan praktis.", R.drawable.ic_bike),
+        Vehicle("Superbike", "Kawasaki Ninja", "MOTOR • PERFORMA", "DNA sirkuit untuk jalan raya", "Kawasaki Ninja menjadi contoh motor sport berfairing penuh dengan performa tinggi dan posisi berkendara agresif.", "Kelas: Superbike. Ciri khas: fairing penuh, mesin bertenaga, dan aerodinamika sport.", R.drawable.bike_superbike),
+        Vehicle("Naked Bike", "Kawasaki Z900", "MOTOR • SPORT", "Gaya tegas dan kendali praktis", "Kawasaki Z900 menggabungkan karakter sporty dengan posisi berkendara tegak dan mesin yang terekspos.", "Kelas: Naked Bike. Ciri khas: mesin terekspos, posisi santai, dan desain minimalis.", R.drawable.bike_naked),
+        Vehicle("Adventure", "BMW R 1250 GS", "MOTOR • PETUALANG", "Jelajahi lebih dari sekadar aspal", "BMW R 1250 GS dibuat untuk perjalanan jauh dan berbagai kondisi jalan, dari perkotaan hingga jalur menantang.", "Kelas: Adventure. Ciri khas: suspensi panjang, posisi tegak, dan kapasitas touring.", R.drawable.bike_adventure),
+        Vehicle("Cruiser", "Harley-Davidson Cruiser", "MOTOR • KLASIK", "Santai menikmati setiap kilometer", "Cruiser Harley-Davidson mengutamakan kenyamanan dan karakter berkendara rileks dengan desain klasik ikonik.", "Kelas: Cruiser. Ciri khas: jok rendah, setang lebar, dan posisi kaki ke depan.", R.drawable.bike_cruiser),
+        Vehicle("Scooter", "Vespa", "MOTOR • HARIAN", "Lincah untuk rutinitas kota", "Vespa adalah contoh skuter bergaya klasik yang praktis untuk aktivitas harian di perkotaan.", "Kelas: Scooter. Ciri khas: transmisi otomatis, praktis, dan nyaman untuk perkotaan.", R.drawable.bike_scooter),
+        Vehicle("Cafe Racer", "Honda CB400 Cafe Racer", "MOTOR • RETRO", "Sentuhan klasik yang personal", "Honda CB400 modifikasi cafe racer terinspirasi motor balap klasik dengan gaya sederhana dan personal.", "Kelas: Cafe Racer. Ciri khas: siluet ramping, jok khas, dan tampilan retro.", R.drawable.bike_cafe),
+        Vehicle("Motocross", "Motorcross", "MOTOR • OFF-ROAD", "Lincah menaklukkan jalur tanah", "Motorcross dirancang untuk lintasan tanah dengan konstruksi ringan dan suspensi yang siap menghadapi lompatan.", "Kelas: Motocross. Ciri khas: ban bertapak dalam, bobot ringan, dan suspensi panjang.", R.drawable.bike_motocross),
+        Vehicle("Electric Bike", "Zero S", "MOTOR • ELEKTRIK", "Perjalanan senyap untuk masa depan", "Zero S memakai baterai sebagai sumber energi dan menghadirkan pengendaraan senyap untuk perjalanan harian.", "Kelas: Motor listrik. Ciri khas: penggerak elektrik dan pengisian daya baterai.", R.drawable.bike_electric),
     )
 
     private var showingCars = true
@@ -68,13 +69,16 @@ class MainActivity : Activity() {
             carsButton.setTextColor(getColor(if (showingCars) R.color.ink else android.R.color.white))
             bikesButton.setTextColor(getColor(if (showingCars) android.R.color.white else R.color.ink))
             list.removeAllViews()
-            val matching = items.filter { it.name.contains(query.trim(), ignoreCase = true) || it.tagline.contains(query.trim(), ignoreCase = true) }
+            val matching = items.filter { it.name.contains(query.trim(), ignoreCase = true) || it.model.contains(query.trim(), ignoreCase = true) || it.tagline.contains(query.trim(), ignoreCase = true) }
             matching.forEach { vehicle ->
                 val row = LayoutInflater.from(this).inflate(R.layout.item_vehicle, list, false)
-                row.findViewById<ImageView>(R.id.vehicleImage).setImageResource(vehicle.image)
+                row.findViewById<ImageView>(R.id.vehicleImage).apply {
+                    setImageResource(vehicle.image)
+                    contentDescription = "Foto ${vehicle.model}"
+                }
                 row.findViewById<TextView>(R.id.vehicleType).text = vehicle.category
-                row.findViewById<TextView>(R.id.vehicleName).text = vehicle.name
-                row.findViewById<TextView>(R.id.vehicleDescription).text = vehicle.tagline
+                row.findViewById<TextView>(R.id.vehicleName).text = vehicle.model
+                row.findViewById<TextView>(R.id.vehicleDescription).text = "${vehicle.name} · ${vehicle.tagline}"
                 row.setOnClickListener { showDetail(vehicle) }
                 list.addView(row)
             }
@@ -102,9 +106,12 @@ class MainActivity : Activity() {
 
     private fun showDetail(vehicle: Vehicle) {
         setContentView(R.layout.activity_detail)
-        findViewById<TextView>(R.id.detailType).text = vehicle.category
-        findViewById<TextView>(R.id.detailName).text = vehicle.name
-        findViewById<ImageView>(R.id.detailImage).setImageResource(vehicle.image)
+        findViewById<TextView>(R.id.detailType).text = "${vehicle.category}  •  ${vehicle.name.uppercase()}"
+        findViewById<TextView>(R.id.detailName).text = vehicle.model
+        findViewById<ImageView>(R.id.detailImage).apply {
+            setImageResource(vehicle.image)
+            contentDescription = "Foto ${vehicle.model}"
+        }
         findViewById<TextView>(R.id.detailDescription).text = vehicle.description
         findViewById<TextView>(R.id.detailExtra).text = vehicle.extra
         findViewById<Button>(R.id.backButton).setOnClickListener { showCatalog() }
